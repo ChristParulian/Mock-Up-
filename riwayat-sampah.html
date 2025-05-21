@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riwayat Kelola Sampah</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+   <!-- Header -->
+  <header class="bg-green-600 text-white shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">♻️ Sapu Jagat</h1>
+      <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="index.html" class="hover:underline transition">Beranda</a>
+        <a href="scan.html" class="hover:underline transition">Scan</a>
+        <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
+        <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
+        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+        <a href="tentang.html" class="hover:underline transition">Tentang</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sidebar Drawer -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
+    <div class="p-4 border-b border-white flex justify-between items-center">
+      <span class="text-lg font-semibold">Menu</span>
+      <button id="close-menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="hover:underline">Dashboard</a>
+      <a href="scan.html" class="hover:underline">Scan</a>
+      <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
+      <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
+      <a href="edukasi.html" class="hover:underline">Edukasi</a>
+      <a href="tentang.html" class="hover:underline">Tentang</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-6 text-center">Riwayat Kelola Sampah</h2>
+
+    <!-- Grid Riwayat List -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+
+      <!-- Item 1 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">15 Mei 2025 - 10:30 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Membuat pot tanaman dari galon bekas.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> RW 05, Kelurahan Sukamaju</p>
+        <canvas id="buktiCanvas1" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">12 Mei 2025 - 14:50 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mengelola kardus bekas untuk dibuat tempat penyimpanan.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Cibinong, Kecamatan Bogor Timur</p>
+        <canvas id="buktiCanvas2" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">10 Mei 2025 - 09:20 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mendaur ulang botol plastik menjadi tempat pensil.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Desa Mekarsari, Kecamatan Sukabumi</p>
+        <canvas id="buktiCanvas3" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">08 Mei 2025 - 16:45 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Membuat kerajinan tangan dari kertas koran bekas.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> RT 02, Kelurahan Rajawali</p>
+        <canvas id="buktiCanvas4" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">05 Mei 2025 - 11:10 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mengumpulkan dan memilah sampah elektronik bekas.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Suka Maju, Kecamatan Tangerang</p>
+        <canvas id="buktiCanvas5" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="bg-white border-l-4 border-green-600 shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-sm font-semibold text-green-700">02 Mei 2025 - 08:00 WIB</span>
+          <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">+1000 poin</span>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mendaur ulang kain bekas menjadi tas belanja.</p>
+        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Melati, Kecamatan Bandung Wetan</p>
+        <canvas id="buktiCanvas6" class="mt-2 rounded border" width="300" height="150"></canvas>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white py-4 mt-auto">
+    <div class="container mx-auto px-4 text-center text-sm">
+      &copy; 2025 Sapu Jagat. All Right Reserved.
+    </div>
+  </footer>
+
+  <!-- Script Mobile Menu -->
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.remove("-translate-x-full");
+    });
+    document.getElementById("close-menu").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.add("-translate-x-full");
+    });
+  </script>
+
+  <!-- Script Canvas Bukti -->
+  <script>
+    const colors = ['#34D399', '#0EA5E9', '#F59E0B', '#EF4444', '#8B5CF6', '#10B981']; // 6 warna berbeda
+    for (let i = 1; i <= 6; i++) {
+      const canvas = document.getElementById('buktiCanvas' + i);
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = colors[i - 1];
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+  </script>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
