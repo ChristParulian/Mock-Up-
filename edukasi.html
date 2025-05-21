@@ -20,53 +20,59 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-<!-- Header -->
-  <header class="bg-green-600 text-white shadow-md">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">♻️ Sapu Jagat</h1>
-      <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="hidden md:flex space-x-6 items-center">
-        <a href="index.html" class="hover:underline transition">Beranda</a>
-        <a href="scan.html" class="hover:underline transition">Scan</a>
+    <!-- Header -->
+    <header style="background-color: #626f47;" class="text-white shadow-md">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <img src="img/logo.png" alt="Logo Sapu Jagat" class="h-18 w-52 sm:h-18 sm:w-52 object-contain" />
+        </div>
+        <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="index.html" class="hover:underline transition">Beranda</a>
+          <a href="scan.html" class="hover:underline transition">Scan</a>
+          <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
+          <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
+          <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+          <a href="tentang.html" class="hover:underline transition">Tentang</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sidebar Drawer -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden"
+      style="background-color: #626f47;"
+    >
+      <div class="p-4 border-b border-white flex justify-between items-center">
+        <span class="text-lg font-semibold">Menu</span>
+        <button id="close-menu" class="text-white text-2xl focus:outline-none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-4 space-y-4">
+        <a href="index.html" class="hover:underline">Dashboard</a>
+        <a href="scan.html" class="hover:underline">Scan</a>
         <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
         <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
-        <a href="tentang.html" class="hover:underline transition">Tentang</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Sidebar Drawer -->
-  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
-    <div class="p-4 border-b border-white flex justify-between items-center">
-      <span class="text-lg font-semibold">Menu</span>
-      <button id="close-menu" class="text-white text-2xl focus:outline-none">
-        <i class="fas fa-times"></i>
-      </button>
+        <a href="edukasi.html" class="hover:underline">Edukasi</a>
+        <a href="tentang.html" class="hover:underline">Tentang</a>
+      </nav>
     </div>
-    <nav class="flex flex-col p-4 space-y-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="scan.html" class="hover:underline">Scan</a>
-      <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
-      <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-      <a href="edukasi.html" class="hover:underline">Edukasi</a>
-      <a href="tentang.html" class="hover:underline">Tentang</a>
-    </nav>
-  </div>
 
     <!-- Main -->
     <main class="flex-grow bg-white py-10">
       <div class="container mx-auto px-4 md:px-8 max-w-7xl">
         <!-- Judul -->
-        <h2 class="text-3xl font-bold mb-10 text-center text-green-700">
+        <h2 class="text-3xl font-bold mb-10 text-center" style="color: #626f47;">
           Edukasi Pengelolaan Sampah
         </h2>
 
         <!-- Jenis Sampah -->
         <section class="grid md:grid-cols-3 gap-6 mb-12">
-          <div class="bg-green-100 p-6 rounded-lg shadow">
+          <div style="background-color: #dfe7cd;" class="p-6 rounded-lg shadow">
             <h3 class="font-semibold text-xl mb-2">♻️ Sampah Organik</h3>
             <p>
               Sampah yang dapat terurai seperti sisa makanan, daun, dan limbah
@@ -91,7 +97,7 @@
 
         <!-- Dampak -->
         <section class="mb-12">
-          <h3 class="text-2xl font-semibold text-green-700 mb-4">
+          <h3 class="text-2xl font-semibold mb-4" style="color: #626f47;">
             🌍 Dampak Buruk Sampah Tidak Terpilah
           </h3>
           <ul class="list-disc list-inside text-gray-700 space-y-2">
@@ -104,7 +110,7 @@
 
         <!-- Daur Ulang -->
         <section class="mb-12">
-          <h3 class="text-2xl font-semibold text-green-700 mb-6">
+          <h3 class="text-2xl font-semibold mb-6" style="color: #626f47;">
             🔄 Cara Mendaur Ulang Sampah
           </h3>
           <div class="grid md:grid-cols-2 gap-6">
@@ -141,7 +147,7 @@
 
         <!-- Peran Masyarakat -->
         <section class="mb-12">
-          <h3 class="text-2xl font-semibold text-green-700 mb-4">
+          <h3 class="text-2xl font-semibold mb-4" style="color: #626f47;">
             🙌 Peran Kita dalam Pengelolaan Sampah
           </h3>
           <ul class="list-decimal list-inside text-gray-700 space-y-2">
@@ -149,12 +155,12 @@
             <li>Mengurangi konsumsi plastik sekali pakai.</li>
             <li>Mendaur ulang barang-barang yang masih bisa digunakan.</li>
             <li>Mendukung bank sampah dan kegiatan lingkungan sekitar.</li>
-            <li>Menyebarkan edukasi kepada keluarga & tetangga.</li>
+            <li>Menyebarkan edukasi kepada keluarga &amp; tetangga.</li>
           </ul>
         </section>
 
         <!-- Quote -->
-        <section class="text-center mt-10 text-green-800 font-semibold italic">
+        <section class="text-center mt-10 font-semibold italic" style="color: #4f5d35;">
           <p>
             "Sampah bukan hanya untuk dibuang, tapi juga untuk dimanfaatkan
             dengan bijak demi bumi yang lebih bersih."
@@ -164,7 +170,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-600 text-white py-4 mt-auto">
+    <footer style="background-color: #626f47;" class="text-white py-4 mt-auto">
       <div class="container mx-auto px-4 text-center text-sm">
         &copy; 2025 Sapu Jagat. All Right Reserved.
       </div>

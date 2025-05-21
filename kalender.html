@@ -20,46 +20,52 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-<!-- Header -->
-  <header class="bg-green-600 text-white shadow-md">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">♻️ Sapu Jagat</h1>
-      <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="hidden md:flex space-x-6 items-center">
-        <a href="index.html" class="hover:underline transition">Beranda</a>
-        <a href="scan.html" class="hover:underline transition">Scan</a>
+    <!-- Header -->
+    <header style="background-color: #626f47;" class="text-white shadow-md">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <img src="img/logo.png" alt="Logo Sapu Jagat" class="h-18 w-52 sm:h-18 sm:w-52 object-contain" />
+        </div>
+        <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="index.html" class="hover:underline transition">Beranda</a>
+          <a href="scan.html" class="hover:underline transition">Scan</a>
+          <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
+          <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
+          <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+          <a href="tentang.html" class="hover:underline transition">Tentang</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sidebar Drawer -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden"
+      style="background-color: #626f47;"
+    >
+      <div class="p-4 border-b border-white flex justify-between items-center">
+        <span class="text-lg font-semibold">Menu</span>
+        <button id="close-menu" class="text-white text-2xl focus:outline-none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-4 space-y-4">
+        <a href="index.html" class="hover:underline">Dashboard</a>
+        <a href="scan.html" class="hover:underline">Scan</a>
         <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
         <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
-        <a href="tentang.html" class="hover:underline transition">Tentang</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Sidebar Drawer -->
-  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
-    <div class="p-4 border-b border-white flex justify-between items-center">
-      <span class="text-lg font-semibold">Menu</span>
-      <button id="close-menu" class="text-white text-2xl focus:outline-none">
-        <i class="fas fa-times"></i>
-      </button>
+        <a href="edukasi.html" class="hover:underline">Edukasi</a>
+        <a href="tentang.html" class="hover:underline">Tentang</a>
+      </nav>
     </div>
-    <nav class="flex flex-col p-4 space-y-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="scan.html" class="hover:underline">Scan</a>
-      <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
-      <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-      <a href="edukasi.html" class="hover:underline">Edukasi</a>
-      <a href="tentang.html" class="hover:underline">Tentang</a>
-    </nav>
-  </div>
 
     <!-- Main -->
     <main class="flex-grow py-10">
       <div class="container mx-auto px-4 md:px-8 max-w-5xl">
-        <h2 class="text-3xl font-bold text-center text-green-700 mb-8">
+        <h2 class="text-3xl font-bold text-center mb-8" style="color: #626f47;">
           📅 Kalender Check-in Harian
         </h2>
 
@@ -69,73 +75,75 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-600 text-white py-4 mt-auto">
+    <footer style="background-color: #626f47;" class="text-white py-4 mt-auto">
       <div class="container mx-auto px-4 text-center text-sm">
         &copy; 2025 Sapu Jagat. All Right Reserved.
       </div>
     </footer>
 
     <!-- Script -->
-<script>
-  const kalenderEl = document.getElementById('kalender');
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+    <script>
+      const kalenderEl = document.getElementById('kalender');
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = today.getMonth();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  for (let day = 1; day <= daysInMonth; day++) {
-    const date = new Date(year, month, day);
-    const isToday = date.toDateString() === today.toDateString();
-    const isPast = date < today && !isToday;
-    const isFuture = date > today;
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        const isToday = date.toDateString() === today.toDateString();
+        const isPast = date < today && !isToday;
+        const isFuture = date > today;
 
-    const card = document.createElement('div');
-    card.className =
-      'bg-white p-4 rounded-lg shadow text-center flex flex-col justify-between';
+        const card = document.createElement('div');
+        card.className =
+          'bg-white p-4 rounded-lg shadow text-center flex flex-col justify-between';
 
-    const tanggal = document.createElement('div');
-    tanggal.className = 'text-xl font-bold text-green-600';
-    tanggal.textContent = day;
+        const tanggal = document.createElement('div');
+        tanggal.className = 'text-xl font-bold';
+        tanggal.style.color = '#626f47';
+        tanggal.textContent = day;
 
-    const status = document.createElement('button');
-    let isCheckedIn = false;
+        const status = document.createElement('button');
+        let isCheckedIn = false;
 
-    // Acak check-in untuk hari yang sudah lewat
-    if (isPast) {
-      isCheckedIn = Math.random() > 0.5;
-    }
+        // Acak check-in untuk hari yang sudah lewat
+        if (isPast) {
+          isCheckedIn = Math.random() > 0.5;
+        }
 
-    if (isToday) {
-      status.textContent = 'Check-in Sekarang';
-      status.className =
-        'mt-4 py-2 px-4 text-sm rounded bg-green-600 text-white hover:bg-green-700 transition';
-      status.addEventListener('click', () => {
-        alert(`Check-in berhasil untuk tanggal ${day}/${month + 1}/${year}`);
-        status.textContent = 'Sudah Check-in';
-        status.disabled = true;
-        status.classList.remove('bg-green-600', 'hover:bg-green-700');
-        status.classList.add('bg-gray-500', 'opacity-70', 'cursor-not-allowed');
-      });
-    } else if (isPast) {
-      status.textContent = isCheckedIn ? 'Sudah Check-in' : 'Belum Check-in';
-      status.className =
-        isCheckedIn
-          ? 'mt-4 py-2 px-4 text-sm rounded bg-gray-500 text-white opacity-70 cursor-not-allowed'
-          : 'mt-4 py-2 px-4 text-sm rounded bg-red-500 text-white opacity-70 cursor-not-allowed';
-      status.disabled = true;
-    } else if (isFuture) {
-      status.textContent = 'Belum Tersedia';
-      status.className =
-        'mt-4 py-2 px-4 text-sm rounded bg-gray-400 text-white opacity-70 cursor-not-allowed';
-      status.disabled = true;
-    }
+        if (isToday) {
+          status.textContent = 'Check-in Sekarang';
+          status.className =
+            'mt-4 py-2 px-4 text-sm rounded text-white transition';
+          status.style.backgroundColor = '#626f47';
+          status.addEventListener('click', () => {
+            alert(`Check-in berhasil untuk tanggal ${day}/${month + 1}/${year}`);
+            status.textContent = 'Sudah Check-in';
+            status.disabled = true;
+            status.classList.remove('bg-green-600', 'hover:bg-green-700');
+            status.classList.add('bg-gray-500', 'opacity-70', 'cursor-not-allowed');
+            status.style.backgroundColor = '';
+          });
+        } else if (isPast) {
+          status.textContent = isCheckedIn ? 'Sudah Check-in' : 'Belum Check-in';
+          status.className =
+            isCheckedIn
+              ? 'mt-4 py-2 px-4 text-sm rounded bg-gray-500 text-white opacity-70 cursor-not-allowed'
+              : 'mt-4 py-2 px-4 text-sm rounded bg-red-500 text-white opacity-70 cursor-not-allowed';
+          status.disabled = true;
+        } else if (isFuture) {
+          status.textContent = 'Belum Tersedia';
+          status.className =
+            'mt-4 py-2 px-4 text-sm rounded bg-gray-400 text-white opacity-70 cursor-not-allowed';
+          status.disabled = true;
+        }
 
-    card.appendChild(tanggal);
-    card.appendChild(status);
-    kalenderEl.appendChild(card);
-  }
-</script>
-
+        card.appendChild(tanggal);
+        card.appendChild(status);
+        kalenderEl.appendChild(card);
+      }
+    </script>
 
     <script src="./script.js"></script>
   </body>

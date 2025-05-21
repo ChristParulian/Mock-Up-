@@ -20,41 +20,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-   <!-- Header -->
-  <header class="bg-green-600 text-white shadow-md">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">♻️ Sapu Jagat</h1>
-      <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="hidden md:flex space-x-6 items-center">
-        <a href="index.html" class="hover:underline transition">Beranda</a>
-        <a href="scan.html" class="hover:underline transition">Scan</a>
+    <!-- Header -->
+    <header style="background-color: #626f47;" class="text-white shadow-md">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <img src="img/logo.png" alt="Logo Sapu Jagat" class="h-18 w-52 sm:h-18 sm:w-52 object-contain" />
+        </div>
+        <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="index.html" class="hover:underline transition">Beranda</a>
+          <a href="scan.html" class="hover:underline transition">Scan</a>
+          <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
+          <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
+          <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+          <a href="tentang.html" class="hover:underline transition">Tentang</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sidebar Drawer -->
+    <div id="mobile-menu" style="background-color: #626f47;" class="fixed top-0 left-0 h-full w-64 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
+      <div class="p-4 border-b border-white flex justify-between items-center">
+        <span class="text-lg font-semibold">Menu</span>
+        <button id="close-menu" class="text-white text-2xl focus:outline-none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-4 space-y-4">
+        <a href="index.html" class="hover:underline">Dashboard</a>
+        <a href="scan.html" class="hover:underline">Scan</a>
         <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
         <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
-        <a href="tentang.html" class="hover:underline transition">Tentang</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Sidebar Drawer -->
-  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
-    <div class="p-4 border-b border-white flex justify-between items-center">
-      <span class="text-lg font-semibold">Menu</span>
-      <button id="close-menu" class="text-white text-2xl focus:outline-none">
-        <i class="fas fa-times"></i>
-      </button>
+        <a href="edukasi.html" class="hover:underline">Edukasi</a>
+        <a href="tentang.html" class="hover:underline">Tentang</a>
+      </nav>
     </div>
-    <nav class="flex flex-col p-4 space-y-4">
-      <a href="index.html" class="hover:underline">Dashboard</a>
-      <a href="scan.html" class="hover:underline">Scan</a>
-      <a href="riwayat-sampah.html" class="hover:underline transition">History Kegiatan</a>
-      <a href="tukar.html" class="hover:underline transition">Tukar Point</a>
-      <a href="edukasi.html" class="hover:underline">Edukasi</a>
-      <a href="tentang.html" class="hover:underline">Tentang</a>
-    </nav>
-  </div>
 
     <!-- Main -->
     <main class="flex-grow container mx-auto px-4 py-8 text-center">
@@ -62,38 +64,21 @@
       <p class="mb-4 text-gray-700">
         Gunakan kamera untuk memindai dan mendeteksi jenis sampah.
       </p>
-      <div
-        class="w-full max-w-2xl mx-auto h-80 bg-gray-200 flex items-center justify-center rounded mb-4 relative shadow"
-      >
-        <!-- Gambar ilustrasi kamera -->
-        <img
-          src="https://gimgs2.nohat.cc/thumb/f/640/png-file-free-camera-svg--m2i8i8A0N4i8b1Z5.jpg"
-          alt="Camera Icon"
-          class="absolute w-16 h-16 opacity-30"
-        />
+      <div class="w-full max-w-2xl mx-auto h-80 bg-gray-200 flex items-center justify-center rounded mb-4 relative shadow">
+        <img src="https://gimgs2.nohat.cc/thumb/f/640/png-file-free-camera-svg--m2i8i8A0N4i8b1Z5.jpg" alt="Camera Icon" class="absolute w-16 h-16 opacity-30" />
       </div>
 
-      <button
-        id="scan-btn"
-        class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded mb-8"
-      >
+      <button id="scan-btn" style="background-color: #626f47;" class="hover:brightness-90 text-white px-6 py-2 rounded mb-8">
         Scan
       </button>
 
       <!-- Feedback Hasil Scan -->
-      <div
-        id="scan-result"
-        class="hidden bg-white border border-green-500 rounded p-4 mb-8 max-w-xl mx-auto shadow-md"
-      >
+      <div id="scan-result" class="hidden bg-white border border-green-500 rounded p-4 mb-8 max-w-xl mx-auto shadow-md">
         <h4 class="text-green-700 font-semibold mb-2">✅ Hasil Scan:</h4>
         <p class="text-gray-700">
           Jenis Sampah: <strong>Plastik BOTOL</strong> – Recycle.
         </p>
-        <a
-          href="./hasil.html"
-          class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-300"
-          role="button"
-        >
+        <a href="./hasil.html" style="background-color: #626f47;" class="mt-4 inline-block hover:brightness-90 text-white font-semibold py-2 px-4 rounded shadow transition duration-300" role="button">
           Kelola Sampah
         </a>
       </div>
@@ -175,11 +160,10 @@
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-600 text-white py-4 mt-auto">
+    <footer style="background-color: #626f47;" class="text-white py-4 mt-auto">
       <div class="container mx-auto px-4 text-center text-sm">
         &copy; 2025 Sapu Jagat. All Right Reserved.
       </div>
