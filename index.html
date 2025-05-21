@@ -103,12 +103,12 @@
             <h3 class="text-xl font-semibold mb-2 text-green-700">
               Daily Check-in
             </h3>
-            <button
-              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-300"
+            <a
+              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-300" href="./kalender.html"
             >
               Check In Hari Ini
-            </button>
-            <p class="mt-2 text-gray-500 text-sm">Terakhir: 19 Mei 2025</p>
+            </a>
+            <p class="mt-2 text-gray-500 text-sm">Terakhir: <span id="tanggal-checkin"></span></p>
           </div>
         </section>
       </div>
@@ -120,6 +120,15 @@
         &copy; 2025 Sapu Jagat. All Right Reserved.
       </div>
     </footer>
+    
+    <script>
+  const tanggalCheckin = document.getElementById('tanggal-checkin');
+  const tanggalSekarang = new Date();
+  const opsiFormat = { day: 'numeric', month: 'long', year: 'numeric' };
+  const tanggalFormatted = tanggalSekarang.toLocaleDateString('id-ID', opsiFormat);
+  tanggalCheckin.textContent = tanggalFormatted;
+</script>
+
 
     <script src="script.js"></script>
   </body>
