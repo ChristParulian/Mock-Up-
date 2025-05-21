@@ -12,7 +12,6 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..."
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
@@ -24,14 +23,11 @@
   <!-- Header -->
   <header class="bg-green-600 text-white shadow-md">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold pl-24 tracking-wide">♻️ Sapu Jagat</h1>
-      <button
-        id="menu-toggle"
-        class="md:hidden focus:outline-none pr-2 text-white text-xl"
-      >
+      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">♻️ Sapu Jagat</h1>
+      <button id="menu-toggle" class="md:hidden focus:outline-none text-xl">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="hidden md:flex space-x-6 items-center pr-24">
+      <div class="hidden md:flex space-x-6 items-center">
         <a href="index.html" class="hover:underline transition">Beranda</a>
         <a href="scan.html" class="hover:underline transition">Scan</a>
         <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
@@ -41,10 +37,7 @@
   </header>
 
   <!-- Sidebar Drawer -->
-  <div
-    id="mobile-menu"
-    class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden"
-  >
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
     <div class="p-4 border-b border-white flex justify-between items-center">
       <span class="text-lg font-semibold">Menu</span>
       <button id="close-menu" class="text-white text-2xl focus:outline-none">
@@ -59,98 +52,45 @@
     </nav>
   </div>
 
-  <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center">
-    <h1 class="text-2xl font-bold mb-6 text-center max-w-xl">Validasi Kegiatan Reuse / Recycle</h1>
+  <main class="flex-grow container mx-auto px-4 py-6 flex flex-col items-center">
+    <h1 class="text-xl sm:text-2xl font-bold mb-4 text-center max-w-xs sm:max-w-md">Validasi Kegiatan Reuse / Recycle</h1>
 
-    <!-- Kamera Gimmick -->
-    <section class="bg-white p-6 rounded shadow max-w-md w-full mb-8">
+    <!-- Kamera dan Upload -->
+    <section class="bg-white p-4 sm:p-6 rounded shadow w-full max-w-sm mb-8">
       <p class="mb-2 font-medium">Ambil Foto Bukti:</p>
-      <canvas
-        id="camera"
-        width="320"
-        height="240"
-        class="border rounded mb-4 block mx-auto"
-      ></canvas>
+      <canvas id="camera" width="320" height="240" class="w-full border rounded mb-4"></canvas>
 
-      <div class="flex gap-2 mb-4">
-        <button
-          id="ambilFoto"
-          class="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded flex-1"
-        >
-          Ambil Foto
-        </button>
-        <input
-          type="file"
-          id="upload"
-          accept="image/*"
-          class="block text-sm text-gray-500 border border-gray-300 rounded flex-1"
-        />
+      <div class="flex flex-col sm:flex-row gap-2 mb-4">
+        <button id="ambilFoto" class="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded w-full sm:w-1/2">Ambil Foto</button>
+        <input type="file" id="upload" accept="image/*" class="text-sm text-gray-500 border border-gray-300 rounded w-full sm:w-1/2" />
       </div>
 
       <!-- Deskripsi -->
-      <label
-        for="deskripsi"
-        class="block font-medium mb-1"
-        >Deskripsi Kegiatan:</label
-      >
-      <textarea
-        id="deskripsi"
-        rows="3"
-        class="w-full p-2 border rounded mb-6 resize-none"
-        placeholder="Contoh: Membuat pot bunga dari botol bekas."
-      ></textarea>
+      <label for="deskripsi" class="block font-medium mb-1">Deskripsi Kegiatan:</label>
+      <textarea id="deskripsi" rows="3" class="w-full p-2 border rounded mb-4 resize-none text-sm" placeholder="Contoh: Membuat pot bunga dari botol bekas."></textarea>
 
       <!-- Tombol Kirim -->
-      <button
-        id="kirimBukti"
-        class="bg-green-600 hover:bg-green-700 transition text-white px-6 py-2 rounded w-full font-semibold"
-      >
+      <button id="kirimBukti" class="bg-green-600 hover:bg-green-700 transition text-white px-6 py-2 rounded w-full font-semibold">
         Kirim Bukti
       </button>
     </section>
 
     <!-- Hasil Report -->
-    <section
-      id="report"
-      class="hidden w-full max-w-md bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded relative shadow"
-    >
-      <div class="flex items-start gap-4">
-        <div class="text-4xl select-none">✅</div>
+    <section id="report" class="hidden w-full max-w-sm bg-green-100 border border-green-400 text-green-800 px-4 py-4 rounded relative shadow text-sm">
+      <div class="flex flex-col gap-2">
+        <div class="text-3xl">✅</div>
+        <h3 class="text-lg font-bold">Bukti Berhasil Diterima</h3>
+        <p>Kegiatan reuse / recycle telah berhasil divalidasi.</p>
+        <p><span class="font-semibold">Waktu:</span> <span id="reportWaktu"></span></p>
+        <p><span class="font-semibold">Lokasi:</span> <span id="reportLokasi">Jalan Mawar No. 123, Bandung</span></p>
+        <p><span class="font-semibold">Reward:</span> <span id="reportPoin" class="font-bold text-green-700">+1000 poin</span></p>
         <div>
-          <h3 class="text-xl font-bold mb-2">Bukti Berhasil Diterima</h3>
-          <p class="text-sm mb-4">
-            Kegiatan reuse / recycle telah berhasil divalidasi.
-          </p>
-
-          <div class="mb-4 text-sm space-y-1">
-            <p><span class="font-semibold">Waktu:</span> <span id="reportWaktu"></span></p>
-            <p><span class="font-semibold">Lokasi:</span> <span id="reportLokasi">Jalan Mawar No. 123, Bandung</span></p>
-            <p>
-              <span class="font-semibold">Reward:</span>
-              <span
-                id="reportPoin"
-                class="text-green-700 font-bold"
-                >+1000 poin</span
-              >
-            </p>
-          </div>
-
-          <div class="mb-4">
-            <span class="font-semibold">Deskripsi:</span>
-            <p
-              id="reportDeskripsi"
-              class="ml-2 text-sm whitespace-pre-line"
-            ></p>
-          </div>
-
-          <div>
-            <span class="font-semibold">Bukti Gambar:</span>
-            <img
-              id="previewReport"
-              class="w-full max-w-xs mt-2 rounded border"
-              alt="Bukti Gambar"
-            />
-          </div>
+          <span class="font-semibold">Deskripsi:</span>
+          <p id="reportDeskripsi" class="whitespace-pre-line mt-1"></p>
+        </div>
+        <div>
+          <span class="font-semibold">Bukti Gambar:</span>
+          <img id="previewReport" class="w-full mt-2 rounded border" alt="Bukti Gambar" />
         </div>
       </div>
     </section>
@@ -170,18 +110,15 @@
 
     let currentImage = null;
 
-    // Gimmick Kamera: generate warna random
     ambilFoto.addEventListener('click', () => {
       const r = Math.floor(Math.random() * 256);
       const g = Math.floor(Math.random() * 256);
       const b = Math.floor(Math.random() * 256);
       ctx.fillStyle = `rgb(${r},${g},${b})`;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       currentImage = canvas.toDataURL('image/png');
     });
 
-    // Upload File
     upload.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (!file) return;
@@ -199,7 +136,6 @@
       reader.readAsDataURL(file);
     });
 
-    // Kirim Bukti
     kirimBukti.addEventListener('click', () => {
       const desc = deskripsi.value.trim();
       if (!desc || !currentImage) {
@@ -216,9 +152,15 @@
       reportImg.src = currentImage;
       reportDeskripsi.textContent = desc;
       report.classList.remove('hidden');
-
-      // Scroll ke hasil report agar terlihat jelas
       report.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Mobile menu
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.remove("-translate-x-full");
+    });
+    document.getElementById("close-menu").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.add("-translate-x-full");
     });
   </script>
 </body>
