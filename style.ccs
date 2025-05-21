@@ -1,0 +1,4 @@
+/* Tambahan jika butuh scrollbar di drawer */
+#mobile-menu {
+  overflow-y: auto;
+}

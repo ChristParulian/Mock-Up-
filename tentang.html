@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Aplikasi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Pilah Sampah</h1>
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:underline">Beranda</a>
+        <a href="scan.html" class="hover:underline">Scan</a>
+        <a href="edukasi.html" class="hover:underline">Edukasi</a>
+        <a href="tentang.html" class="hover:underline">Tentang</a>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="index.html" class="block py-2 border-b border-white">Beranda</a>
+      <a href="scan.html" class="block py-2 border-b border-white">Scan</a>
+      <a href="edukasi.html" class="block py-2 border-b border-white">Edukasi</a>
+      <a href="tentang.html" class="block py-2">Tentang</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+  <h2 class="text-2xl font-bold mb-4 text-center">Tentang Aplikasi Pilah Sampah</h2>
+  <p class="text-gray-700 mb-4 text-center">Aplikasi ini bertujuan untuk membantu masyarakat memilah sampah dengan teknologi pemindai kamera dan sistem klasifikasi cerdas.</p>
+  <p class="text-gray-600 text-center">Versi 1.0 | Dibuat oleh Tim Proyek Mahasiswa 2025</p>
+</main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-4 mt-auto">
+    <p class="text-sm text-gray-600">&copy; 2025 Pilah Sampah. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

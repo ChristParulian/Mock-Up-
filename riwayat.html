@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riwayat Scan - Pilah Sampah</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold pl-24 tracking-wide">♻️ Pilah Sampah</h1>
+      <button id="menu-toggle" class="md:hidden focus:outline-none pr-2 text-white text-xl">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex space-x-6 items-center pr-24">
+        <a href="index.html" class="hover:underline transition">Beranda</a>
+        <a href="scan.html" class="hover:underline transition">Scan</a>
+        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+        <a href="tentang.html" class="hover:underline transition">Tentang</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sidebar Mobile -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
+    <div class="p-4 border-b border-white flex justify-between items-center">
+      <span class="text-lg font-semibold">Menu</span>
+      <button id="close-menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="hover:underline">Beranda</a>
+      <a href="scan.html" class="hover:underline">Scan</a>
+      <a href="edukasi.html" class="hover:underline">Edukasi</a>
+      <a href="tentang.html" class="hover:underline">Tentang</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-center mb-6">📂 Riwayat Scan</h2>
+    <p class="text-center text-gray-600 mb-8">Berikut adalah daftar hasil scan sampah yang pernah Anda lakukan.</p>
+
+    <!-- Card Riwayat Scan -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+
+      <!-- Contoh Riwayat Scan -->
+      <div class="bg-white rounded shadow p-4">
+        <div class="flex items-start space-x-3 mb-2">
+          <i class="fas fa-bottle-water text-blue-500 text-2xl mt-1"></i>
+          <div>
+            <p class="font-semibold">Plastik (Botol Air Mineral)</p>
+            <p class="text-sm text-gray-600">Dideteksi pada: 20 Mei 2025, 10:45 WIB</p>
+          </div>
+        </div>
+        <span class="text-green-700 font-medium text-sm">✅ Rekomendasi: Daur Ulang</span>
+      </div>
+
+      <div class="bg-white rounded shadow p-4">
+        <div class="flex items-start space-x-3 mb-2">
+          <i class="fas fa-newspaper text-gray-500 text-2xl mt-1"></i>
+          <div>
+            <p class="font-semibold">Kertas (Kardus Bekas)</p>
+            <p class="text-sm text-gray-600">Dideteksi pada: 19 Mei 2025, 17:30 WIB</p>
+          </div>
+        </div>
+        <span class="text-green-700 font-medium text-sm">✅ Rekomendasi: Daur Ulang</span>
+      </div>
+
+      <div class="bg-white rounded shadow p-4">
+        <div class="flex items-start space-x-3 mb-2">
+          <i class="fas fa-leaf text-green-700 text-2xl mt-1"></i>
+          <div>
+            <p class="font-semibold">Sampah Organik (Daun Kering)</p>
+            <p class="text-sm text-gray-600">Dideteksi pada: 19 Mei 2025, 09:15 WIB</p>
+          </div>
+        </div>
+        <span class="text-green-700 font-medium text-sm">✅ Rekomendasi: Komposkan</span>
+      </div>
+
+      <!-- Tambahkan item riwayat lainnya secara dinamis jika diperlukan -->
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="scan.html" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded transition">🔙 Kembali ke Scan</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white py-4 mt-auto">
+    <div class="container mx-auto px-4 text-center text-sm">
+      &copy; 2025 Pilah Sampah. Semua hak dilindungi.
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
