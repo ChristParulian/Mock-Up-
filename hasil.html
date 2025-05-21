@@ -2,39 +2,224 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hasil Scan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white font-sans flex flex-col min-h-screen">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scan</title>
 
-  <header class="bg-green-600 text-white">
-    <nav class="container mx-auto p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Pilah Sampah</h1>
-      <div class="space-x-4">
-        <a href="index.html" class="hover:underline">Beranda</a>
-        <a href="scan.html" class="hover:underline">Scan</a>
-        <a href="edukasi.html" class="hover:underline">Edukasi</a>
-        <a href="tentang.html" class="hover:underline">Tentang</a>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold pl-24 tracking-wide">♻️ Sapu Jagat</h1>
+      <button
+        id="menu-toggle"
+        class="md:hidden focus:outline-none pr-2 text-white text-xl"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex space-x-6 items-center pr-24">
+        <a href="index.html" class="hover:underline transition">Beranda</a>
+        <a href="scan.html" class="hover:underline transition">Scan</a>
+        <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+        <a href="tentang.html" class="hover:underline transition">Tentang</a>
       </div>
     </nav>
   </header>
 
-  <main class="flex-grow">
-    <section class="p-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Hasil Klasifikasi Sampah</h2>
-      <img src="https://via.placeholder.com/300" alt="Hasil Gambar" class="mx-auto mb-4 rounded shadow" />
-      <p class="text-lg">Jenis Sampah: <strong>Plastik</strong></p>
-      <div class="mt-6 space-x-4">
-        <a href="scan.html" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Ulangi Scan</a>
-        <a href="edukasi.html" class="text-green-600 hover:underline">Pelajari Lebih Lanjut</a>
+  <!-- Sidebar Drawer -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden"
+  >
+    <div class="p-4 border-b border-white flex justify-between items-center">
+      <span class="text-lg font-semibold">Menu</span>
+      <button id="close-menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="hover:underline">Beranda</a>
+      <a href="scan.html" class="hover:underline">Scan</a>
+      <a href="edukasi.html" class="hover:underline">Edukasi</a>
+      <a href="tentang.html" class="hover:underline">Tentang</a>
+    </nav>
+  </div>
+
+  <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center">
+    <h1 class="text-2xl font-bold mb-6 text-center max-w-xl">Validasi Kegiatan Reuse / Recycle</h1>
+
+    <!-- Kamera Gimmick -->
+    <section class="bg-white p-6 rounded shadow max-w-md w-full mb-8">
+      <p class="mb-2 font-medium">Ambil Foto Bukti:</p>
+      <canvas
+        id="camera"
+        width="320"
+        height="240"
+        class="border rounded mb-4 block mx-auto"
+      ></canvas>
+
+      <div class="flex gap-2 mb-4">
+        <button
+          id="ambilFoto"
+          class="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded flex-1"
+        >
+          Ambil Foto
+        </button>
+        <input
+          type="file"
+          id="upload"
+          accept="image/*"
+          class="block text-sm text-gray-500 border border-gray-300 rounded flex-1"
+        />
+      </div>
+
+      <!-- Deskripsi -->
+      <label
+        for="deskripsi"
+        class="block font-medium mb-1"
+        >Deskripsi Kegiatan:</label
+      >
+      <textarea
+        id="deskripsi"
+        rows="3"
+        class="w-full p-2 border rounded mb-6 resize-none"
+        placeholder="Contoh: Membuat pot bunga dari botol bekas."
+      ></textarea>
+
+      <!-- Tombol Kirim -->
+      <button
+        id="kirimBukti"
+        class="bg-green-600 hover:bg-green-700 transition text-white px-6 py-2 rounded w-full font-semibold"
+      >
+        Kirim Bukti
+      </button>
+    </section>
+
+    <!-- Hasil Report -->
+    <section
+      id="report"
+      class="hidden w-full max-w-md bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded relative shadow"
+    >
+      <div class="flex items-start gap-4">
+        <div class="text-4xl select-none">✅</div>
+        <div>
+          <h3 class="text-xl font-bold mb-2">Bukti Berhasil Diterima</h3>
+          <p class="text-sm mb-4">
+            Kegiatan reuse / recycle telah berhasil divalidasi.
+          </p>
+
+          <div class="mb-4 text-sm space-y-1">
+            <p><span class="font-semibold">Waktu:</span> <span id="reportWaktu"></span></p>
+            <p><span class="font-semibold">Lokasi:</span> <span id="reportLokasi">Jalan Mawar No. 123, Bandung</span></p>
+            <p>
+              <span class="font-semibold">Reward:</span>
+              <span
+                id="reportPoin"
+                class="text-green-700 font-bold"
+                >+1000 poin</span
+              >
+            </p>
+          </div>
+
+          <div class="mb-4">
+            <span class="font-semibold">Deskripsi:</span>
+            <p
+              id="reportDeskripsi"
+              class="ml-2 text-sm whitespace-pre-line"
+            ></p>
+          </div>
+
+          <div>
+            <span class="font-semibold">Bukti Gambar:</span>
+            <img
+              id="previewReport"
+              class="w-full max-w-xs mt-2 rounded border"
+              alt="Bukti Gambar"
+            />
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
-    <p>&copy; 2025 Pilah Sampah. Dibuat oleh Tim Mahasiswa Peduli Lingkungan.</p>
-  </footer>
+  <script>
+    const canvas = document.getElementById('camera');
+    const ctx = canvas.getContext('2d');
+    const ambilFoto = document.getElementById('ambilFoto');
+    const upload = document.getElementById('upload');
+    const deskripsi = document.getElementById('deskripsi');
+    const kirimBukti = document.getElementById('kirimBukti');
+    const report = document.getElementById('report');
+    const reportImg = document.getElementById('previewReport');
+    const reportDeskripsi = document.getElementById('reportDeskripsi');
+    const reportWaktu = document.getElementById('reportWaktu');
 
+    let currentImage = null;
+
+    // Gimmick Kamera: generate warna random
+    ambilFoto.addEventListener('click', () => {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      currentImage = canvas.toDataURL('image/png');
+    });
+
+    // Upload File
+    upload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const img = new Image();
+        img.onload = function () {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          currentImage = canvas.toDataURL('image/png');
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Kirim Bukti
+    kirimBukti.addEventListener('click', () => {
+      const desc = deskripsi.value.trim();
+      if (!desc || !currentImage) {
+        alert('Harap ambil gambar atau pilih file, dan isi deskripsi.');
+        return;
+      }
+
+      const waktu = new Date().toLocaleString('id-ID', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+
+      reportWaktu.textContent = waktu;
+      reportImg.src = currentImage;
+      reportDeskripsi.textContent = desc;
+      report.classList.remove('hidden');
+
+      // Scroll ke hasil report agar terlihat jelas
+      report.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

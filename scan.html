@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilah Sampah - Beranda</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- FontAwesome CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..."
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="bg-green-600 text-white shadow-md">
       <nav
@@ -60,111 +60,145 @@
       </nav>
     </div>
 
-<!-- Main -->
-<main class="flex-grow container mx-auto px-4 py-8 text-center">
-  <h2 class="text-2xl font-bold mb-4">Scan Sampah</h2>
-  <p class="mb-4 text-gray-700">Gunakan kamera untuk memindai dan mendeteksi jenis sampah.</p>
-  <div class="w-full max-w-2xl mx-auto h-80 bg-gray-200 flex items-center justify-center rounded mb-4 relative shadow">
-  <!-- Gambar ilustrasi kamera -->
-  <img src="https://gimgs2.nohat.cc/thumb/f/640/png-file-free-camera-svg--m2i8i8A0N4i8b1Z5.jpg" alt="Camera Icon" class="absolute w-16 h-16 opacity-30" />
-</div>
+    <!-- Main -->
+    <main class="flex-grow container mx-auto px-4 py-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Scan Sampah</h2>
+      <p class="mb-4 text-gray-700">
+        Gunakan kamera untuk memindai dan mendeteksi jenis sampah.
+      </p>
+      <div
+        class="w-full max-w-2xl mx-auto h-80 bg-gray-200 flex items-center justify-center rounded mb-4 relative shadow"
+      >
+        <!-- Gambar ilustrasi kamera -->
+        <img
+          src="https://gimgs2.nohat.cc/thumb/f/640/png-file-free-camera-svg--m2i8i8A0N4i8b1Z5.jpg"
+          alt="Camera Icon"
+          class="absolute w-16 h-16 opacity-30"
+        />
+      </div>
 
-  <button id="scan-btn" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded mb-8">Scan</button>
+      <button
+        id="scan-btn"
+        class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded mb-8"
+      >
+        Scan
+      </button>
 
-  <!-- Feedback Hasil Scan -->
-  <div id="scan-result" class="hidden bg-white border border-green-500 rounded p-4 mb-8 max-w-xl mx-auto shadow-md">
-    <h4 class="text-green-700 font-semibold mb-2">✅ Hasil Scan:</h4>
-    <p class="text-gray-700">Jenis Sampah: <strong>Plastik BOTOL</strong> – Recycle.</p>
-  </div>
+      <!-- Feedback Hasil Scan -->
+      <div
+        id="scan-result"
+        class="hidden bg-white border border-green-500 rounded p-4 mb-8 max-w-xl mx-auto shadow-md"
+      >
+        <h4 class="text-green-700 font-semibold mb-2">✅ Hasil Scan:</h4>
+        <p class="text-gray-700">
+          Jenis Sampah: <strong>Plastik BOTOL</strong> – Recycle.
+        </p>
+        <a
+          href="./hasil.html"
+          class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-300"
+          role="button"
+        >
+          Kelola Sampah
+        </a>
+      </div>
 
-  <!-- Petunjuk Cara Scan -->
-  <section class="max-w-4xl mx-auto mb-10">
-  <h3 class="text-xl font-semibold text-green-700 mb-4">📸 Cara Menggunakan Fitur Scan</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
-      <p>Pastikan kamera perangkat Anda aktif dan diizinkan.</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-sun text-yellow-500 text-xl mt-1"></i>
-      <p>Arahkan kamera ke sampah dengan pencahayaan yang cukup.</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-play-circle text-blue-500 text-xl mt-1"></i>
-      <p>Tekan tombol <strong>Scan</strong> untuk memindai sampah.</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-microchip text-purple-500 text-xl mt-1"></i>
-      <p>Sistem akan mendeteksi jenis sampah & memberi rekomendasi penanganan sampah.</p>
-    </div>
-  </div>
-</section>
+      <!-- Petunjuk Cara Scan -->
+      <section class="max-w-4xl mx-auto mb-10">
+        <h3 class="text-xl font-semibold text-green-700 mb-4">
+          📸 Cara Menggunakan Fitur Scan
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-check-circle text-green-600 text-xl mt-1"></i>
+            <p>Pastikan kamera perangkat Anda aktif dan diizinkan.</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-sun text-yellow-500 text-xl mt-1"></i>
+            <p>Arahkan kamera ke sampah dengan pencahayaan yang cukup.</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-play-circle text-blue-500 text-xl mt-1"></i>
+            <p>Tekan tombol <strong>Scan</strong> untuk memindai sampah.</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-microchip text-purple-500 text-xl mt-1"></i>
+            <p>
+              Sistem akan mendeteksi jenis sampah & memberi rekomendasi
+              penanganan sampah.
+            </p>
+          </div>
+        </div>
+      </section>
 
+      <!-- Jenis Sampah yang Didukung -->
+      <section class="max-w-4xl mx-auto mb-10">
+        <h3 class="text-xl font-semibold text-green-700 mb-4">
+          ♻️ Jenis Sampah yang Bisa Dipindai
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-bottle-water text-blue-500 text-xl mt-1"></i>
+            <p>Plastik (botol, kantong, kemasan)</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-newspaper text-gray-500 text-xl mt-1"></i>
+            <p>Kertas (koran, buku, kardus)</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-drum-steelpan text-orange-500 text-xl mt-1"></i>
+            <p>Logam (kaleng, alumunium)</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-wine-bottle text-green-500 text-xl mt-1"></i>
+            <p>Kaca (botol kaca, pecahan)</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-leaf text-green-700 text-xl mt-1"></i>
+            <p>Sampah organik (sisa makanan, daun)</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Jenis Sampah yang Didukung -->
-  <section class="max-w-4xl mx-auto mb-10">
-  <h3 class="text-xl font-semibold text-green-700 mb-4">♻️ Jenis Sampah yang Bisa Dipindai</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-bottle-water text-blue-500 text-xl mt-1"></i>
-      <p>Plastik (botol, kantong, kemasan)</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-newspaper text-gray-500 text-xl mt-1"></i>
-      <p>Kertas (koran, buku, kardus)</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-drum-steelpan text-orange-500 text-xl mt-1"></i>
-      <p>Logam (kaleng, alumunium)</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-wine-bottle text-green-500 text-xl mt-1"></i>
-      <p>Kaca (botol kaca, pecahan)</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-leaf text-green-700 text-xl mt-1"></i>
-      <p>Sampah organik (sisa makanan, daun)</p>
-    </div>
-  </div>
-</section>
+      <!-- Tips Memilah Sampah -->
+      <section class="max-w-4xl mx-auto mb-10">
+        <h3 class="text-xl font-semibold text-green-700 mb-4">
+          💡 Tips Memilah Sampah dengan Baik
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-soap text-blue-400 text-xl mt-1"></i>
+            <p>Cuci bersih kemasan sebelum membuangnya.</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-boxes text-yellow-600 text-xl mt-1"></i>
+            <p>Gunakan kantong atau wadah berbeda untuk tiap jenis sampah.</p>
+          </div>
+          <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
+            <i class="fas fa-ban text-red-500 text-xl mt-1"></i>
+            <p>Jangan mencampur sampah organik dan non-organik.</p>
+          </div>
+        </div>
+      </section>
 
+      <!-- Riwayat Scan -->
+      <section class="max-w-2xl mx-auto text-center">
+        <a
+          href="./riwayat.html"
+          class="inline-block mt-4 bg-white border border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold px-6 py-2 rounded transition duration-300"
+        >
+          📂 Lihat Riwayat Scan
+        </a>
+      </section>
+    </main>
 
-  <!-- Tips Memilah Sampah -->
-  <section class="max-w-4xl mx-auto mb-10">
-  <h3 class="text-xl font-semibold text-green-700 mb-4">💡 Tips Memilah Sampah dengan Baik</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-soap text-blue-400 text-xl mt-1"></i>
-      <p>Cuci bersih kemasan sebelum membuangnya.</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-boxes text-yellow-600 text-xl mt-1"></i>
-      <p>Gunakan kantong atau wadah berbeda untuk tiap jenis sampah.</p>
-    </div>
-    <div class="bg-white rounded shadow p-4 flex items-start space-x-3">
-      <i class="fas fa-ban text-red-500 text-xl mt-1"></i>
-      <p>Jangan mencampur sampah organik dan non-organik.</p>
-    </div>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-4 mt-auto">
+      <div class="container mx-auto px-4 text-center text-sm">
+        &copy; 2025 Sapu Jagat. All Right Reserved.
+      </div>
+    </footer>
 
-
-  <!-- Riwayat Scan -->
-  <section class="max-w-2xl mx-auto text-center">
-    <a href="./riwayat.html" class="inline-block mt-4 bg-white border border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold px-6 py-2 rounded transition duration-300">
-      📂 Lihat Riwayat Scan
-    </a>
-  </section>
-</main>
-
-  <!-- Footer -->
-  <footer class="bg-green-600 text-white py-4 mt-auto">
-    <div class="container mx-auto px-4 text-center text-sm">
-      &copy; 2025 Sapu Jagat. All Right Reserved.
-    </div>
-  </footer>
-
-  <!-- Script -->
-  <script src="script.js"></script>
-</body>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,123 +1,180 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edukasi Sampah</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex flex-col min-h-screen">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sapu Jagat - Dashboard</title>
 
-  <!-- Header -->
-  <header class="bg-green-600 text-white">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Pilah Sampah</h1>
-      <button id="menu-toggle" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <div class="hidden md:flex space-x-6">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-green-600 text-white shadow-md">
+      <nav
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold pl-24 tracking-wide">♻️ Sapu Jagat</h1>
+        <button
+          id="menu-toggle"
+          class="md:hidden focus:outline-none pr-2 text-white text-xl"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="hidden md:flex space-x-6 items-center pr-24">
+          <a href="index.html" class="hover:underline transition">Beranda</a>
+          <a href="scan.html" class="hover:underline transition">Scan</a>
+          <a href="edukasi.html" class="hover:underline transition">Edukasi</a>
+          <a href="tentang.html" class="hover:underline transition">Tentang</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sidebar Drawer -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 bg-green-700 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden"
+    >
+      <div class="p-4 border-b border-white flex justify-between items-center">
+        <span class="text-lg font-semibold">Menu</span>
+        <button id="close-menu" class="text-white text-2xl focus:outline-none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col p-4 space-y-4">
         <a href="index.html" class="hover:underline">Beranda</a>
         <a href="scan.html" class="hover:underline">Scan</a>
         <a href="edukasi.html" class="hover:underline">Edukasi</a>
         <a href="tentang.html" class="hover:underline">Tentang</a>
-      </div>
-    </nav>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="index.html" class="block py-2 border-b border-white">Beranda</a>
-      <a href="scan.html" class="block py-2 border-b border-white">Scan</a>
-      <a href="edukasi.html" class="block py-2 border-b border-white">Edukasi</a>
-      <a href="tentang.html" class="block py-2">Tentang</a>
+      </nav>
     </div>
-  </header>
 
-  <!-- Main -->
-<main class="flex-grow bg-white py-10">
-  <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+    <!-- Main -->
+    <main class="flex-grow bg-white py-10">
+      <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+        <!-- Judul -->
+        <h2 class="text-3xl font-bold mb-10 text-center text-green-700">
+          Edukasi Pengelolaan Sampah
+        </h2>
 
-    <!-- Judul -->
-    <h2 class="text-3xl font-bold mb-10 text-center text-green-700">Edukasi Pengelolaan Sampah</h2>
+        <!-- Jenis Sampah -->
+        <section class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-green-100 p-6 rounded-lg shadow">
+            <h3 class="font-semibold text-xl mb-2">♻️ Sampah Organik</h3>
+            <p>
+              Sampah yang dapat terurai seperti sisa makanan, daun, dan limbah
+              dapur. Bisa dijadikan pupuk kompos.
+            </p>
+          </div>
+          <div class="bg-yellow-100 p-6 rounded-lg shadow">
+            <h3 class="font-semibold text-xl mb-2">🔁 Sampah Anorganik</h3>
+            <p>
+              Seperti plastik, logam, dan kaca. Sulit terurai, tapi bisa didaur
+              ulang jika dipisahkan dengan benar.
+            </p>
+          </div>
+          <div class="bg-blue-100 p-6 rounded-lg shadow">
+            <h3 class="font-semibold text-xl mb-2">⚠️ Sampah B3</h3>
+            <p>
+              Limbah Bahan Berbahaya dan Beracun seperti baterai, cat, dan obat.
+              Harus dibuang ke tempat khusus.
+            </p>
+          </div>
+        </section>
 
-    <!-- Jenis Sampah -->
-    <section class="grid md:grid-cols-3 gap-6 mb-12">
-      <div class="bg-green-100 p-6 rounded-lg shadow">
-        <h3 class="font-semibold text-xl mb-2">♻️ Sampah Organik</h3>
-        <p>Sampah yang dapat terurai seperti sisa makanan, daun, dan limbah dapur. Bisa dijadikan pupuk kompos.</p>
+        <!-- Dampak -->
+        <section class="mb-12">
+          <h3 class="text-2xl font-semibold text-green-700 mb-4">
+            🌍 Dampak Buruk Sampah Tidak Terpilah
+          </h3>
+          <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>Pencemaran tanah, air, dan udara.</li>
+            <li>Menimbulkan bau dan sumber penyakit.</li>
+            <li>Mengancam kehidupan laut.</li>
+            <li>Menurunkan kualitas hidup masyarakat.</li>
+          </ul>
+        </section>
+
+        <!-- Daur Ulang -->
+        <section class="mb-12">
+          <h3 class="text-2xl font-semibold text-green-700 mb-6">
+            🔄 Cara Mendaur Ulang Sampah
+          </h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-5 rounded-lg border shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Plastik</h4>
+              <p>
+                Bersihkan, keringkan, dan serahkan ke bank sampah atau tempat
+                daur ulang.
+              </p>
+            </div>
+            <div class="bg-white p-5 rounded-lg border shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Kertas</h4>
+              <p>
+                Pisahkan dari sampah basah, ikat, dan jual ke pengepul atau
+                didaur ulang jadi kertas baru.
+              </p>
+            </div>
+            <div class="bg-white p-5 rounded-lg border shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Kaca</h4>
+              <p>
+                Kumpulkan pecahan kaca dengan aman. Gunakan wadah tertutup agar
+                tidak melukai orang lain.
+              </p>
+            </div>
+            <div class="bg-white p-5 rounded-lg border shadow-sm">
+              <h4 class="font-bold text-lg mb-2">Organik</h4>
+              <p>
+                Jadikan kompos menggunakan metode takakura, keranjang kompos,
+                atau biopori.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Peran Masyarakat -->
+        <section class="mb-12">
+          <h3 class="text-2xl font-semibold text-green-700 mb-4">
+            🙌 Peran Kita dalam Pengelolaan Sampah
+          </h3>
+          <ul class="list-decimal list-inside text-gray-700 space-y-2">
+            <li>Mulai memilah sampah dari rumah.</li>
+            <li>Mengurangi konsumsi plastik sekali pakai.</li>
+            <li>Mendaur ulang barang-barang yang masih bisa digunakan.</li>
+            <li>Mendukung bank sampah dan kegiatan lingkungan sekitar.</li>
+            <li>Menyebarkan edukasi kepada keluarga & tetangga.</li>
+          </ul>
+        </section>
+
+        <!-- Quote -->
+        <section class="text-center mt-10 text-green-800 font-semibold italic">
+          <p>
+            "Sampah bukan hanya untuk dibuang, tapi juga untuk dimanfaatkan
+            dengan bijak demi bumi yang lebih bersih."
+          </p>
+        </section>
       </div>
-      <div class="bg-yellow-100 p-6 rounded-lg shadow">
-        <h3 class="font-semibold text-xl mb-2">🔁 Sampah Anorganik</h3>
-        <p>Seperti plastik, logam, dan kaca. Sulit terurai, tapi bisa didaur ulang jika dipisahkan dengan benar.</p>
-      </div>
-      <div class="bg-blue-100 p-6 rounded-lg shadow">
-        <h3 class="font-semibold text-xl mb-2">⚠️ Sampah B3</h3>
-        <p>Limbah Bahan Berbahaya dan Beracun seperti baterai, cat, dan obat. Harus dibuang ke tempat khusus.</p>
-      </div>
-    </section>
+    </main>
 
-    <!-- Dampak -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-green-700 mb-4">🌍 Dampak Buruk Sampah Tidak Terpilah</h3>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Pencemaran tanah, air, dan udara.</li>
-        <li>Menimbulkan bau dan sumber penyakit.</li>
-        <li>Mengancam kehidupan laut.</li>
-        <li>Menurunkan kualitas hidup masyarakat.</li>
-      </ul>
-    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-center py-4 mt-auto">
+      <p class="text-sm text-gray-600">
+        &copy; 2025 Pilah Sampah. All rights reserved.
+      </p>
+    </footer>
 
-    <!-- Daur Ulang -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-green-700 mb-6">🔄 Cara Mendaur Ulang Sampah</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-5 rounded-lg border shadow-sm">
-          <h4 class="font-bold text-lg mb-2">Plastik</h4>
-          <p>Bersihkan, keringkan, dan serahkan ke bank sampah atau tempat daur ulang.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg border shadow-sm">
-          <h4 class="font-bold text-lg mb-2">Kertas</h4>
-          <p>Pisahkan dari sampah basah, ikat, dan jual ke pengepul atau didaur ulang jadi kertas baru.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg border shadow-sm">
-          <h4 class="font-bold text-lg mb-2">Kaca</h4>
-          <p>Kumpulkan pecahan kaca dengan aman. Gunakan wadah tertutup agar tidak melukai orang lain.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg border shadow-sm">
-          <h4 class="font-bold text-lg mb-2">Organik</h4>
-          <p>Jadikan kompos menggunakan metode takakura, keranjang kompos, atau biopori.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Peran Masyarakat -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-green-700 mb-4">🙌 Peran Kita dalam Pengelolaan Sampah</h3>
-      <ul class="list-decimal list-inside text-gray-700 space-y-2">
-        <li>Mulai memilah sampah dari rumah.</li>
-        <li>Mengurangi konsumsi plastik sekali pakai.</li>
-        <li>Mendaur ulang barang-barang yang masih bisa digunakan.</li>
-        <li>Mendukung bank sampah dan kegiatan lingkungan sekitar.</li>
-        <li>Menyebarkan edukasi kepada keluarga & tetangga.</li>
-      </ul>
-    </section>
-
-    <!-- Quote -->
-    <section class="text-center mt-10 text-green-800 font-semibold italic">
-      <p>"Sampah bukan hanya untuk dibuang, tapi juga untuk dimanfaatkan dengan bijak demi bumi yang lebih bersih."</p>
-    </section>
-
-  </div>
-</main>
-
-
-
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-center py-4 mt-auto">
-    <p class="text-sm text-gray-600">&copy; 2025 Pilah Sampah. All rights reserved.</p>
-  </footer>
-
-  <!-- Script -->
-  <script src="script.js"></script>
-</body>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
 </html>
