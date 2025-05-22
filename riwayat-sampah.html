@@ -7,6 +7,18 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#626f47',
+            secondary: '#4a5539'
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- FontAwesome CDN -->
   <link
@@ -15,11 +27,41 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+
+  <style>
+    /* Custom styles */
+    .history-card {
+      border-left-width: 4px;
+      border-left-color: #626f47;
+      transition: all 0.2s ease;
+    }
+    
+    .history-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .history-date {
+      color: #626f47;
+    }
+    
+    .point-badge {
+      background-color: #626f47;
+    }
+    
+    canvas {
+      border: 1px solid #e2e8f0;
+    }
+    
+    .description-text {
+      color: #4a5568;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
 
    <!-- Header -->
-  <header style="background-color: #626f47;" class="text-white shadow-md">
+  <header class="bg-primary text-white shadow-md">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-2">
         <img src="img/logo.png" alt="Logo Sapu Jagat" class="h-18 w-52 sm:h-18 sm:w-52 object-contain">
@@ -39,7 +81,7 @@
   </header>
 
   <!-- Sidebar Drawer -->
-  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden" style="background-color: #626f47;">
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-primary text-white transform -translate-x-full transition-transform duration-300 z-50 md:hidden">
     <div class="p-4 border-b border-white flex justify-between items-center">
       <span class="text-lg font-semibold">Menu</span>
       <button id="close-menu" class="text-white text-2xl focus:outline-none">
@@ -57,85 +99,85 @@
   </div>
 
   <!-- Main Content -->
-  <main class="flex-grow container mx-auto px-4 py-6">
-    <h2 class="text-xl sm:text-2xl font-bold mb-6 text-center">Riwayat Kelola Sampah</h2>
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center text-primary">Riwayat Kelola Sampah</h2>
 
     <!-- Grid Riwayat List -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
 
       <!-- Item 1 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">15 Mei 2025 - 10:30 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">15 Mei 2025 - 10:30 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Membuat pot tanaman dari galon bekas.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> RW 05, Kelurahan Sukamaju</p>
-        <canvas id="buktiCanvas1" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Membuat pot tanaman dari galon bekas.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> RW 05, Kelurahan Sukamaju</p>
+        <canvas id="buktiCanvas1" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
       <!-- Item 2 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">12 Mei 2025 - 14:50 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">12 Mei 2025 - 14:50 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mengelola kardus bekas untuk dibuat tempat penyimpanan.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Cibinong, Kecamatan Bogor Timur</p>
-        <canvas id="buktiCanvas2" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Mengelola kardus bekas untuk dibuat tempat penyimpanan.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> Kelurahan Cibinong, Kecamatan Bogor Timur</p>
+        <canvas id="buktiCanvas2" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
       <!-- Item 3 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">10 Mei 2025 - 09:20 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">10 Mei 2025 - 09:20 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mendaur ulang botol plastik menjadi tempat pensil.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Desa Mekarsari, Kecamatan Sukabumi</p>
-        <canvas id="buktiCanvas3" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Mendaur ulang botol plastik menjadi tempat pensil.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> Desa Mekarsari, Kecamatan Sukabumi</p>
+        <canvas id="buktiCanvas3" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
       <!-- Item 4 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">08 Mei 2025 - 16:45 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">08 Mei 2025 - 16:45 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Membuat kerajinan tangan dari kertas koran bekas.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> RT 02, Kelurahan Rajawali</p>
-        <canvas id="buktiCanvas4" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Membuat kerajinan tangan dari kertas koran bekas.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> RT 02, Kelurahan Rajawali</p>
+        <canvas id="buktiCanvas4" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
       <!-- Item 5 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">05 Mei 2025 - 11:10 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">05 Mei 2025 - 11:10 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mengumpulkan dan memilah sampah elektronik bekas.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Suka Maju, Kecamatan Tangerang</p>
-        <canvas id="buktiCanvas5" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Mengumpulkan dan memilah sampah elektronik bekas.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> Kelurahan Suka Maju, Kecamatan Tangerang</p>
+        <canvas id="buktiCanvas5" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
       <!-- Item 6 -->
-      <div class="bg-white border-l-4" style="border-color: #626f47;" class="shadow p-4 rounded">
-        <div class="flex justify-between items-center mb-1">
-          <span class="text-sm font-semibold" style="color: #626f47;">02 Mei 2025 - 08:00 WIB</span>
-          <span class="text-xs px-2 py-1 rounded" style="background-color: #626f47; color: white;">+1000 poin</span>
+      <div class="history-card bg-white shadow p-4 rounded">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold history-date">02 Mei 2025 - 08:00 WIB</span>
+          <span class="text-xs px-2 py-1 rounded point-badge text-white">+1000 poin</span>
         </div>
-        <p class="text-sm text-gray-700"><strong>Deskripsi:</strong> Mendaur ulang kain bekas menjadi tas belanja.</p>
-        <p class="text-sm text-gray-700"><strong>Lokasi:</strong> Kelurahan Melati, Kecamatan Bandung Wetan</p>
-        <canvas id="buktiCanvas6" class="mt-2 rounded border" width="300" height="150"></canvas>
+        <p class="text-sm description-text"><strong>Deskripsi:</strong> Mendaur ulang kain bekas menjadi tas belanja.</p>
+        <p class="text-sm description-text"><strong>Lokasi:</strong> Kelurahan Melati, Kecamatan Bandung Wetan</p>
+        <canvas id="buktiCanvas6" class="mt-3 rounded w-full" width="300" height="150"></canvas>
       </div>
 
     </section>
   </main>
 
   <!-- Footer -->
-  <footer style="background-color: #626f47;" class="text-white py-4 mt-auto">
-    <div class="container mx-auto px-4 text-center text-sm">
-      &copy; 2025 Sapu Jagat. All Right Reserved.
+  <footer class="bg-primary text-white py-4 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      &copy; 2025 Sapu Jagat. All Rights Reserved.
     </div>
   </footer>
 
@@ -151,7 +193,7 @@
 
   <!-- Script Canvas Bukti -->
   <script>
-    const colors = ['#34D399', '#0EA5E9', '#F59E0B', '#EF4444', '#8B5CF6', '#10B981']; // 6 warna berbeda
+    const colors = ['#34D399', '#0EA5E9', '#F59E0B', '#EF4444', '#8B5CF6', '#10B981'];
     for (let i = 1; i <= 6; i++) {
       const canvas = document.getElementById('buktiCanvas' + i);
       if (canvas) {
